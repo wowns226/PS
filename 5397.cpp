@@ -12,6 +12,8 @@
 using namespace std;
 
 int main() {
+    FASTIO
+
     queue<int> q;
     int TestCase;
     cin >> TestCase;
