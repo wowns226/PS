@@ -7,6 +7,7 @@
 #define ENDL "\n"
 
 /***************************************************************************************
+ *   * 링크 : https://www.acmicpc.net/problem/1874
  *   1. tmp라는 변수를 입력받아 1부터 tmp까지 stack에 push하다가 tmp라는 수를
  *   vector에 push_back
  *   2. 다음 tmp를 입력받아 stack의 top이랑 비교 후 같으면 vector에 push_back
@@ -15,6 +16,8 @@
 using namespace std;
 
 int main() {
+    FASTIO
+
     stack<int> snum;
     vector<char> vanswer;
 
