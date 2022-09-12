@@ -5,8 +5,8 @@
 #define FASTIO                             \
     std::ios_base::sync_with_stdio(false); \
     std::cin.tie(0);                       \
-    std::cout.tie(0);
-#define ENDL "\n";
+    std::cout.tie(0)
+#define ENDL "\n"
 #define LL long long
 
 const int MAX = 80001;
@@ -18,7 +18,7 @@ const int MAX = 80001;
 using namespace std;
 
 int main() {
-    FASTIO
+    FASTIO;
     int N;
     cin >> N;
 
