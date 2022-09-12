@@ -3,8 +3,8 @@
 #define FASTIO                             \
     std::ios_base::sync_with_stdio(false); \
     std::cin.tie(0);                       \
-    std::cout.tie(0);
-#define ENDL "\n";
+    std::cout.tie(0)
+#define ENDL "\n"
 
 /***************************************************************************************
  *   * 링크 : https://www.acmicpc.net/problem/1260
@@ -52,7 +52,7 @@ void BFS(int start) {
 }
 
 int main() {
-    FASTIO
+    FASTIO;
 
     cin >> N >> M >> V;
 
