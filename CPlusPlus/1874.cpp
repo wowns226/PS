@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 
-#define FASTIO                                                                 \
-    std::ios_base::sync_with_stdio(false);                                     \
-    std::cin.tie(0);                                                           \
-    std::cout.tie(0);
+#define FASTIO                             \
+    std::ios_base::sync_with_stdio(false); \
+    std::cin.tie(0);                       \
+    std::cout.tie(0)
 #define ENDL "\n"
 
 /***************************************************************************************
@@ -16,7 +16,7 @@
 using namespace std;
 
 int main() {
-    FASTIO
+    FASTIO;
 
     stack<int> snum;
     vector<char> vanswer;
