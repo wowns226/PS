@@ -13,18 +13,18 @@
 using namespace std;
 
 int n, d, t;
+int board[502][502] = {
+    0,
+};
+int rotate_board[502][502] = {
+    0,
+};
 
 int main() {
     FASTIO;
     cin >> t;
 
     while (t--) {
-        int board[502][502] = {
-            0,
-        };
-        int rotate_board[502][502] = {
-            0,
-        };
         cin >> n >> d;
         d /= 45;
         // 시계방향으로만 돌리기 위해 양수로 변환
