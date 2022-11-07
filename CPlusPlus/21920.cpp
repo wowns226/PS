@@ -48,6 +48,7 @@ int main() {
 
     sum /= answerSize;
 
+    // 오차 10^-6까지 표현
     cout.precision(7);
     cout << sum << ENDL;
 
