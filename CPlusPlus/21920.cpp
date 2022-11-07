@@ -45,7 +45,6 @@ int main() {
     }
 
     double answerSize = answer.size();
-
     sum /= answerSize;
 
     // 오차 10^-6까지 표현
