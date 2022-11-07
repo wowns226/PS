@@ -15,7 +15,6 @@ namespace BaekJoon
             var input = Console.ReadLine().Split(' ');
             int n = int.Parse(input[0]);
             int k = int.Parse(input[1]);
-            // n=7, k=3
 
             Queue<int> q = new Queue<int>();
 
@@ -23,7 +22,6 @@ namespace BaekJoon
             {
                 q.Enqueue(i);
             }
-            // q = (1,2,3,4,5,6,7)
 
             StringBuilder sb = new StringBuilder("<");
             while (q.Count > 0)
