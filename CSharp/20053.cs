@@ -9,26 +9,26 @@ namespace BOJ
     {
         static void Main()
         {
-            StringBuilder sb = new StringBuilder();            
+            StringBuilder sb = new StringBuilder();
             int testCase = int.Parse(Console.ReadLine());
-            
-            for(int i = 0 ; i < testCase ; i++)
+
+            for (int i = 0; i < testCase; i++)
             {
                 int numCount = int.Parse(Console.ReadLine());
                 string[] nums = Console.ReadLine().Split(' ');
                 int MyMax = -123456789;
                 int MyMin = 123456789;
 
-                for(int j = 0 ; j < numCount ; j++)
+                for (int j = 0; j < numCount; j++)
                 {
                     int num = int.Parse(nums[j]);
 
-                    if(num > MyMax)
+                    if (num > MyMax)
                     {
                         MyMax = num;
                     }
 
-                    if(num < MyMin)
+                    if (num < MyMin)
                     {
                         MyMin = num;
                     }
