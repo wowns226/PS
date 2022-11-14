@@ -10,15 +10,15 @@ namespace BOJ
         static void Main()
         {
             StringBuilder sb = new StringBuilder();
-            LinkedList<int> list = new LinkedList<int>();   
+            LinkedList<int> list = new LinkedList<int>();
 
             int cmdCount = int.Parse(Console.ReadLine());
 
-            for(int i = 0 ; i < cmdCount ; i++)
+            for (int i = 0; i < cmdCount; i++)
             {
                 string[] cmd = Console.ReadLine().Split(' ');
 
-                switch(cmd[0])
+                switch (cmd[0])
                 {
                     case "push_front":
                         int num = int.Parse(cmd[1]);
@@ -31,7 +31,7 @@ namespace BOJ
                         break;
 
                     case "pop_front":
-                        if(list.Count != 0)
+                        if (list.Count != 0)
                         {
                             num = list.First();
                             sb.AppendLine(num.ToString());
@@ -44,7 +44,7 @@ namespace BOJ
                         break;
 
                     case "pop_back":
-                        if(list.Count != 0)
+                        if (list.Count != 0)
                         {
                             num = list.Last();
                             sb.AppendLine(num.ToString());
@@ -61,7 +61,7 @@ namespace BOJ
                         break;
 
                     case "empty":
-                        if(list.Count == 0)
+                        if (list.Count == 0)
                         {
                             sb.AppendLine("1");
                         }
@@ -72,7 +72,7 @@ namespace BOJ
                         break;
 
                     case "front":
-                        if(list.Count != 0)
+                        if (list.Count != 0)
                         {
                             num = list.First();
                             sb.AppendLine(num.ToString());
@@ -84,7 +84,7 @@ namespace BOJ
                         break;
 
                     case "back":
-                        if(list.Count != 0)
+                        if (list.Count != 0)
                         {
                             num = list.Last();
                             sb.AppendLine(num.ToString());
