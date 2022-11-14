@@ -1,101 +1,81 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 
-/***************************************************************************************
- *   * 링크 : https://www.acmicpc.net/problem/1260
- ***************************************************************************************/
+// 링크 : https://www.acmicpc.net/problem/1260
 
-namespace BaekJoon
+namespace BOJ
 {
-    class Graph
+    internal class Program
     {
-        int[,] arr = new int[1001, 1001];
-
-        bool[] dfsvisited = new bool[1001];
-        bool[] bfsvisited = new bool[1001];
-
-        public void SetArrIndex(int _row, int _cal)
+        static void DFS(int _n, int[,] _arr, bool[] _visited, int _start, StringBuilder _sb)
         {
-            arr[_row, _cal] = 1;
-            arr[_cal, _row] = 1;
-        }
+            _sb.Append(_start.ToString() + ' ');
+            _visited[_start] = true;
 
-        public void DFS(int _N, int _start)
-        {
-            Console.Write("{0} ", _start);
-
-            dfsvisited[_start] = true;
-
-            for (int i = 0; i < _N + 1; i++)
+            for (int i = 0; i < _n + 1; i++)
             {
-                if (arr[_start, i] == 0)
-                    continue;
-                if (dfsvisited[i])
-                    continue;
+                if (_arr[_start, i] == 0) continue;
+                if (_visited[i]) continue;
 
-                DFS(_N, i);
+                DFS(_n, _arr, _visited, i, _sb);
             }
         }
 
-        public void BFS(int _N, int _start)
+        static void BFS(int _n, int[,] _arr, bool[] _visited, int _start, StringBuilder _sb)
         {
             Queue<int> q = new Queue<int>();
-
             q.Enqueue(_start);
+            _visited[_start] = true;
 
-            bfsvisited[_start] = true;
-
-            while (q.Count > 0)
+            while (q.Count != 0)
             {
-                int now = q.Dequeue();
-                Console.Write("{0} ", now);
+                int cur = q.First();
+                q.Dequeue();
+                _sb.Append(cur.ToString() + ' ');
 
-                for (int i = 0; i < _N + 1; i++)
+                for (int i = 0; i < _n + 1; i++)
                 {
-                    if (arr[now, i] == 0)
-                        continue;
-                    if (bfsvisited[i])
-                        continue;
+                    if (_arr[cur, i] == 0) continue;
+                    if (_visited[i]) continue;
 
                     q.Enqueue(i);
-                    bfsvisited[i] = true;
+                    _visited[i] = true;
                 }
             }
         }
-    }
 
-    class Program
-    {
-        static void Main(string[] args)
+        static void Main()
         {
+            StringBuilder sbDFS = new StringBuilder();
+            StringBuilder sbBFS = new StringBuilder();
 
+            int[,] arr = new int[1001, 1001];
+            bool[] visitedDFS = new bool[1001];
+            bool[] visitedBFS = new bool[1001];
 
-            // for (int i = 1; i < N + 1; i++)
-            // {
-            //     for (int j = 1; j < N + 1; j++)
-            //     {
-            //         Console.Write(arr[i, j]);
-            //     }
-            //     Console.WriteLine();
-            // }
+            string[] input = Console.ReadLine().Split(' ');
 
-            Graph graph = new Graph();
+            int n = int.Parse(input[0]);
+            int m = int.Parse(input[1]);
+            int start = int.Parse(input[2]);
 
-            int N = Convert.ToInt32(Console.ReadLine());
-            int M = Convert.ToInt32(Console.ReadLine());
-            int V = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < M; i++)
+            for (int i = 0; i < m; i++)
             {
-                int row = Convert.ToInt32(Console.ReadLine());
-                int cal = Convert.ToInt32(Console.ReadLine());
+                string[] inputAB = Console.ReadLine().Split(' ');
+                int a = int.Parse(inputAB[0]);
+                int b = int.Parse(inputAB[1]);
 
-                graph.SetArrIndex(row, cal);
+                arr[a, b] = 1;
+                arr[b, a] = 1;
             }
 
-            graph.DFS(N, V);
-            Console.WriteLine();
-            graph.BFS(N, V);
+            DFS(n, arr, visitedDFS, start, sbDFS);
+            Console.WriteLine(sbDFS.ToString());
+
+
+
+            BFS(n, arr, visitedBFS, start, sbBFS);
+            Console.WriteLine(sbBFS.ToString());
         }
     }
 }
