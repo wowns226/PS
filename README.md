@@ -1,8 +1,3 @@
-> # BOJ
-> ## 백준 문제풀이 소스 코드
->> ### C++
->> ***
->
->> ### C#
->> ***
-> ***
+## Problem Solving
+### [BOJ](https://www.acmicpc.net/)
+### [Programmers](https://programmers.co.kr/)
