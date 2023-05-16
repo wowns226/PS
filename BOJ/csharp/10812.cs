@@ -1,62 +1,50 @@
 namespace BOJ
 {
-    class No_19583
+    class No_10812
     {
-        static void Main()
+        public static void Main()
         {
             using StreamReader input = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
             using StreamWriter output = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
 
-            string[] inputs = input.ReadLine().Split();
-            string s = inputs[0];
-            string e = inputs[1];
-            string q = inputs[2];
+            int[] inputs = Array.ConvertAll(input.ReadLine().Split(), int.Parse);
+            int n = inputs[0];
+            int m = inputs[1];
 
-            int[] times = new int[3];
+            int[] arr = new int[n + 1];
+            for(int i = 1 ; i <= n ; i++)
+                arr[i] = i;
 
-            List<string> checkin = new List<string>();
-            List<string> checkout = new List<string>();
-
-            for(int i = 0 ; i < inputs.Length ; i++)
+            while(m-->0)
             {
-                int[] timeArray = Array.ConvertAll(inputs[i].Split(':'), int.Parse);
+                inputs = Array.ConvertAll(input.ReadLine().Split(), int.Parse);
+                int i = inputs[0];
+                int j = inputs[1];
+                int k = inputs[2];
 
-                int time = timeArray[0] * 60 + timeArray[1];
-
-                times[i] = time;
+                arr = Suffle(arr, i, j, k);
             }
 
-            while(true)
+            for(int i = 1 ; i <= n ; i++)
+                output.Write($"{arr[i]} ");
+        }
+
+        static int[] Suffle(int[] arr, int start, int end, int mid)
+        {
+            int[] clone = new int[arr.Length];
+            Array.Copy(arr, clone, arr.Length);
+
+            for(int i=start ;i<=end ;i++)
             {
-                string temp = input.ReadLine();
+                clone[i] = arr[mid++];
 
-                if(string.IsNullOrEmpty(temp))
-                    break;
-
-                inputs = temp.Split();
-
-
-                int[] timeArray = Array.ConvertAll(inputs[0].Split(':'), int.Parse);
-
-                int time = timeArray[0] * 60 + timeArray[1];
-
-                string name = inputs[1];
-
-                if(time <= times[0])
+                if(mid > end)
                 {
-                    checkin.Add(name);
-                }
-                else if(times[1] <= time && time <= times[2])
-                {
-                    checkout.Add(name);
+                    mid = start;
                 }
             }
 
-            List<string> list = new List<string>();
-
-            list = checkin.Intersect(checkout).ToList();
-
-            output.Write(list.Count);
+            return clone;
         }
     }
 }
