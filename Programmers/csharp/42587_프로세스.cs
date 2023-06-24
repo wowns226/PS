@@ -1,16 +1,16 @@
 namespace Programmers
 {
-    class No_42746
+    class No_42587
     {
         static void Main()
         {
-            TestCase(new int[] {6,10,2 }, "6210");
-            TestCase(new int[] { 3, 30, 34, 5, 9 }, "9534330");
+            TestCase(new int[] { 2, 1, 3, 2 }, 2, 1);
+            TestCase(new int[] { 1, 1, 9, 1, 1, 1 }, 0, 5);
         }
 
-        static void TestCase(int[] numbers, string answer)
+        static void TestCase(int[] priorities, int location, int answer)
         {
-            var testCaseValue = Solution(numbers);
+            var testCaseValue = Solution(priorities, location);
 
             if(testCaseValue == answer)
                 Console.WriteLine("성공");
@@ -18,22 +18,35 @@ namespace Programmers
                 Console.WriteLine("실패");
         }
 
-        static string Solution(int[] numbers)
+        static int Solution(int[] priorities, int location)
         {
-            Array.Sort(numbers, (x, y) =>
+            int answer = 0;
+            Queue<(int, int)> q = new Queue<(int, int)>();
+            for(int i = 0 ; i < priorities.Length ; i++)
             {
-                Console.WriteLine("");
-                string XY = x.ToString() + y.ToString();
-                string YX = y.ToString() + x.ToString();
+                q.Enqueue((i, priorities[i]));
+            }
+            // (2,0) , (1,1) , (3,2) , (2,3)
 
-                foreach(var i in numbers) Console.WriteLine(i);
-                return YX.CompareTo(XY);
-            });
+            while(true)
+            {
+                int myMax = q.Max(x => x.Item2);
 
-            
+                var cur = q.Dequeue();
 
-            if (numbers.Where(x => x == 0).Count() == numbers.Length) return "0";
-            else return string.Join("", numbers);
+                if(cur.Item2 == myMax)
+                {
+                    if(cur.Item1 == location)
+                        return answer + 1;
+                    else
+                    {
+                        answer++;
+                        continue;
+                    }
+                }
+
+                q.Enqueue(cur);
+            }
         }
     }
 }
