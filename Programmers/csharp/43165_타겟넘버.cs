@@ -1,6 +1,6 @@
-namespace cs
+namespace Programmers
 {
-    class MainApp
+    class No_43165
     {
         static int answer = 0;
 

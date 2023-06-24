@@ -1,6 +1,6 @@
-namespace cs
+namespace Programmers
 {
-    class MainApp
+    class No_42748
     {
         static void Main()
         {
