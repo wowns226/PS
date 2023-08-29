@@ -41,8 +41,8 @@ namespace BOJ
 
         static bool BFS(int x, int y)
         {
-            for (int i = 0 ; i < MAX ; i++)
-                for(int j = 0 ; j < MAX ; j++)
+            for (int i = 0 ; i < m ; i++)
+                for(int j = 0 ; j < n ; j++)
                     visited[i, j] = false;
 
             q.Clear();
