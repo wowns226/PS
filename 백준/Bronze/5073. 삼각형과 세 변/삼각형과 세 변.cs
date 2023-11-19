@@ -7,39 +7,41 @@ namespace BOJ_5073
         static void Main()
         {
             StringBuilder sb = new StringBuilder();
-            HashSet<int> hashSet = new HashSet<int>();
 
             while (true)
             {
                 int[] inputs = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
-                
                 Array.Sort(inputs);
-
-                hashSet.Clear();
-                foreach (int input in inputs)
-                {
-                    hashSet.Add(input);
-                }
+                
+                int a = inputs[0];
+                int b = inputs[1];
+                int c = inputs[2];
                 
                 if (inputs.All(x => x == 0))
                 {
                     break;
                 }
 
-                switch (hashSet.Count)
+                if (IsTriangle(a, b, c))
                 {
-                    case 1:
+                    if (a == b && b == c)
+                    {
                         sb.AppendLine("Equilateral");
+                    }
+                
+                    else if (a == b || b == c || c == a)
+                    {
+                        sb.AppendLine("Isosceles");
+                    }
 
-                        break;
-                    case 2:
-                        sb.AppendLine(IsTriangle(inputs[0], inputs[1], inputs[2]) ? "Isosceles" : "Invalid");
-
-                        break;
-                    case 3:
-                        sb.AppendLine(IsTriangle(inputs[0], inputs[1], inputs[2]) ? "Scalene" : "Invalid");
-
-                        break;
+                    else
+                    {
+                        sb.AppendLine("Scalene");
+                    }
+                }
+                else
+                {
+                    sb.AppendLine("Invalid");
                 }
             }
 
