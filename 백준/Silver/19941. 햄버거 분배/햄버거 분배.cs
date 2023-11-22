@@ -2,6 +2,9 @@ namespace BOJ_19941
 {
     class Program
     {
+        const char PERSON = 'P';
+        const char HAMBURGER = 'H';
+        
         static void Main()
         {
             int[] inputs = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
@@ -9,25 +12,17 @@ namespace BOJ_19941
             int k = inputs[1];
 
             string s = Console.ReadLine();
-
             bool[] eaten = new bool[n];
-            for (int i = 0; i < n; i++)
-            {
-                if (s[i] == 'P')
-                {
-                    eaten[i] = true;
-                }
-            }
-
             int count = 0;
             for (int i = 0; i < n; i++)
             {
-                if (s[i] != 'P') continue;
+                if (s[i] == HAMBURGER) continue;
                 
                 for (int j = i - k; j <= i + k; j++)
                 {
-                    if (j < 0 || j >= n) continue;
-                    if (s[j] != 'H' || eaten[j] != false) continue;
+                    if (j < 0) j = 0;
+                    if (j >= n) break;
+                    if (s[j] == PERSON || eaten[j]) continue;
                     
                     eaten[j] = true;
                     count++;
