@@ -6,17 +6,20 @@ namespace BOJ_20920
     {
         static void Main()
         {
+            using StreamReader sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
+            using StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
+            
             Dictionary<string, int> dict = new Dictionary<string, int>();
             
             StringBuilder sb = new StringBuilder();
 
-            int[] inputs = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+            int[] inputs = Array.ConvertAll(sr.ReadLine().Split(), int.Parse);
             int n = inputs[0];
             int m = inputs[1];
 
             for (int i = 0; i < n; i++)
             {
-                string s = Console.ReadLine();
+                string s = sr.ReadLine();
  
                 if (s.Length < m) continue;
 
@@ -32,7 +35,7 @@ namespace BOJ_20920
                 sb.AppendLine(item.Key);
             }
 
-            Console.Write(sb);
+            sw.Write(sb);
         }
     }
 }
