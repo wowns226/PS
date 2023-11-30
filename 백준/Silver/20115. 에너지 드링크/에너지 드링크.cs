@@ -9,17 +9,19 @@ namespace BOJ_20115
 
             int n = int.Parse(Console.ReadLine());
 
-            List<double> inputs = Array.ConvertAll(Console.ReadLine().Split(), double.Parse).ToList();
+            int[] inputs = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 
-            inputs.Sort();
-
-            while(inputs.Count > 1)
+            long sum = 0;
+            int max = 0;
+            for (int i = 0; i < inputs.Length; i++)
             {
-                inputs[inputs.Count - 1] += inputs[0] / 2;
-                inputs.RemoveAt(0);
+                sum += inputs[i];
+                max = Math.Max(max, inputs[i]);
             }
+
+            double answer = (max * 0.5) + (sum * 0.5);
             
-            sw.Write($"{inputs[0]}");
+            sw.Write($"{answer}");
         }
     }
 }
