@@ -1,6 +1,6 @@
 namespace BOJ
 {
-    class No_15683
+    class No_15686
     {
         const int MAX_CHOICE_COUNT = 13;
         const int MAX = 987654321;

@@ -18,7 +18,7 @@ class Jewel : IComparable<Jewel>
     }
 }
 
-class MainClass
+class No_1202
 {
     public static void Main(string[] args)
     {

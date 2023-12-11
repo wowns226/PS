@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace BOJ_1976
+namespace BOJ_2630
 {
     class Program
     {
