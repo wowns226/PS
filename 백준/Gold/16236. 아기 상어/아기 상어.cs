@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-class Program
+class No_16236
 {
     static int N;
     static int[,] space;

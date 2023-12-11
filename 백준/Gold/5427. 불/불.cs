@@ -1,4 +1,4 @@
-class Program
+class No_5427
 {
     static void Main(string[] args)
     {

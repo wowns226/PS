@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-class Program
+class No_14891
 {
     const int MAX_GEAR_NUM = 4;
     const int MAX_GEAR_PARTS_NUM = 8;

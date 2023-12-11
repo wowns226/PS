@@ -1,4 +1,4 @@
-namespace BOJ_25756
+namespace BOJ_18221
 {
     class Program
     {

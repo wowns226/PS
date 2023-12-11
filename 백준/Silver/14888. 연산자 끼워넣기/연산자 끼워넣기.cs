@@ -3,7 +3,7 @@ using System.Text;
 namespace BOJ
 {
 
-    class No_13335
+    class No_14888
     {
         static int n;
         static int myMax = int.MinValue;
