@@ -16,25 +16,20 @@ namespace BOJ_6236
             int M = inputs[1];
 
             List<int> payTodayList = new List<int>();
-            int maxPay = int.MinValue;
-            int minPay = int.MaxValue;
 
             for (int i = 0; i < N; i++)
             {
                 int pay = int.Parse(sr.ReadLine());
                 
                 payTodayList.Add(pay);
-
-                maxPay = Math.Max(maxPay, pay);
-                minPay = Math.Min(minPay, pay);
             }
             
-            sw.Write(BinarySearch(minPay, maxPay, M, payTodayList));
+            sw.Write(BinarySearch(M, payTodayList));
             
             sr.Close(); sw.Flush(); sw.Close();
         }
 
-        static int BinarySearch(int min, int max, int maxCount, List<int> list)
+        static int BinarySearch(int maxCount, List<int> list)
         {
             int start = 0;
             int end = int.MaxValue;
