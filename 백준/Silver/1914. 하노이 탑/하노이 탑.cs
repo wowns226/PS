@@ -5,22 +5,24 @@ namespace BOJ
 {
     class No_1914
     {
-        static int callCount = 0; 
         static StringBuilder sb = new StringBuilder();
         
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
 
+            BigInteger count = BigInteger.Pow(2, n) - 1;
+
+            sb.AppendLine(count.ToString());
+
             if (n > 20)
             {
-                Console.WriteLine($"{BigInteger.Subtract((BigInteger)Math.Pow(2, n), 1)}");
+                Console.WriteLine(sb);
                 return;
             }
             
             Hanoi(n, 1, 2, 3);
-
-            Console.WriteLine(callCount);
+            
             Console.WriteLine(sb);
         }
 
@@ -33,7 +35,6 @@ namespace BOJ
         {
             if (n == 0) return;
 
-            callCount++;
             Hanoi(n - 1, from, to, by);
             Move(from, to);
             Hanoi(n - 1, by, from, to);
