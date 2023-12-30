@@ -7,32 +7,23 @@ namespace BOJ
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
             string s = Console.ReadLine();
-            int nLength = n * 2 + 1;
-
+            
             int answer = 0;
-            for (int i = 0; i <= m - nLength; i++)
+            for (int i = 0; i < m - 2; i++)
             {
                 if(s[i] == 'O') continue;
 
-                int count = 0;
-                for (int j = 0; j < nLength; j++)
+                int cnt = 0;
+                while (i < m - 2 && s[i + 1] == 'O' && s[i + 2] == 'I')
                 {
-                    if (j % 2 == 0 && s[i+j] != 'I')
+                    cnt++;
+                    if (cnt == n)
                     {
-                        break;
-                    }
-                    
-                    if (j % 2 == 1 && s[i+j] != 'O')
-                    {
-                        break;
+                        answer++;
+                        cnt--;
                     }
 
-                    count++;
-                }
-                
-                if (count == nLength)
-                {
-                    answer++;
+                    i += 2;
                 }
             }
 
