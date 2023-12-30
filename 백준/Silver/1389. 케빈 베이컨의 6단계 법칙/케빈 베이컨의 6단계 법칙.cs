@@ -50,13 +50,6 @@ namespace BOJ
                 FindChild(task, item, array, dict, 2);
             }
 
-            // Console.WriteLine($"{task}일때의 리스트");
-            // for (int i = 0; i < n; i++)
-            // {
-            //     Console.Write($"{array[i]} ");
-            // }
-            // Console.WriteLine();
-
             // 4. 3번까지 한 기록 리스트의 합을 리턴
             return array.Sum();
         }
