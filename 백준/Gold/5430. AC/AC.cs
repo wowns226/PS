@@ -1,4 +1,3 @@
-using System.Data;
 using System.Text;
 
 namespace BOJ
@@ -13,12 +12,17 @@ namespace BOJ
             while (testCase-- > 0)
             {
                 bool reverse = false;
+                
                 bool flag = true;
                 string s = Input();
                 int n = InputToInt();
                 string temp = Input();
                 temp = temp.Substring(1, temp.Length - 2);
                 var list = n == 0 ? new List<int>() : Array.ConvertAll(temp.Split(','), int.Parse).ToList();
+
+                int dequeCount = 0;
+                int start = 0;
+                int end = list.Count - 1;
 
                 for (int i = 0; i < s.Length; i++)
                 {
@@ -28,7 +32,9 @@ namespace BOJ
                     }
                     else
                     {
-                        if (list.Count == 0)
+                        dequeCount++;
+                        
+                        if (dequeCount > list.Count)
                         {
                             flag = false;
                             
@@ -37,11 +43,11 @@ namespace BOJ
 
                         if (reverse == true)
                         {
-                            list.RemoveAt(list.Count - 1);
+                            end--;
                         }
                         else
                         {
-                            list.RemoveAt(0);
+                            start++;
                         }
                     }
                 }
@@ -51,9 +57,9 @@ namespace BOJ
                     sb.Append('[');
                     if (reverse == true)
                     {
-                        for (int i = list.Count-1; i >= 0; i--)
+                        for (int i = end; i >= start; i--)
                         {
-                            if (i == 0)
+                            if (i == start)
                             {
                                 sb.Append($"{list[i]}");   
                             }
@@ -65,9 +71,9 @@ namespace BOJ
                     }
                     else
                     {
-                        for (int i = 0; i < list.Count; i++)
+                        for (int i = start; i <= end; i++)
                         {
-                            if (i == list.Count - 1)
+                            if (i == end)
                             {
                                 sb.Append($"{list[i]}");   
                             }
