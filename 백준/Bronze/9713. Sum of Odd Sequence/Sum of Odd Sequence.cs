@@ -8,7 +8,7 @@ namespace BOJ
         static T ConvertTo(string s) => (T)Convert.ChangeType(s, typeof(T));
     }
     
-    class No_10830
+    class No_9713
     {
         static void Main()
         {
