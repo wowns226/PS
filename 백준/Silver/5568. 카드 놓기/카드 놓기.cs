@@ -1,55 +1,55 @@
-namespace BOJ_5568
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+public class Program
 {
-    class Program
+    static int n, k;
+    static string[] cards;
+    static HashSet<string> numbers = new HashSet<string>();
+
+    public static void Main()
     {
-        static int n, k;
-        static List<int> cards = new List<int>();
-        static bool[] used;
-        static HashSet<string> hashSet = new HashSet<string>();
+        using var sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
+        using var sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
 
-        static void Main()
+        sw.Write(Solve(sr));
+    }
+
+    private static string Solve(StreamReader sr)
+    {
+        n = int.Parse(Console.ReadLine());
+        k = int.Parse(Console.ReadLine());
+
+        cards = new string[n];
+        for (int i = 0; i < n; i++)
         {
-            using StreamReader sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
-            using StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
-
-            n = int.Parse(sr.ReadLine());
-            k = int.Parse(sr.ReadLine());
-
-            for (int i = 0; i < n; i++)
-            {
-                cards.Add(int.Parse(sr.ReadLine()));
-            }
-
-            used = new bool[n];
-
-            DFS(0, "");
-
-            sw.Write(hashSet.Count);
-
-            sr.Close();
-            sw.Flush();
-            sw.Close();
+            cards[i] = Console.ReadLine();
         }
 
-        static void DFS(int idx, string str)
+        Permute(new List<string>(), new bool[n]);
+
+        return numbers.Count.ToString();
+    }
+
+    static void Permute(List<string> selected, bool[] used)
+    {
+        if (selected.Count == k)
         {
-            if (idx == k)
-            {
-                hashSet.Add(str);
+            numbers.Add(string.Join("", selected));
+            return;
+        }
 
-                return;
-            }
-
-            for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
+        {
+            if (!used[i])
             {
-                if (used[i] == false)
-                {
-                    used[i] = true;
-                    DFS(idx + 1, str + cards[i]);
-                    used[i] = false;
-                }
+                used[i] = true;
+                selected.Add(cards[i]);
+                Permute(selected, used);
+                selected.RemoveAt(selected.Count - 1);
+                used[i] = false;
             }
         }
     }
 }
-
