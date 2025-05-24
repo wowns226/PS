@@ -17,22 +17,10 @@ public class No_13458
         long result = 0;
         for (int i = 0; i < n; i++)
         {
-            if (a[i] <= b[0])
-            {
-                result++;
-            }
-            else
-            {
-                result++;
-                a[i] -= b[0];
-                if (a[i] > 0)
-                {
-                    if (a[i] % b[1] > 0)
-                        result += (a[i] / b[1]) + 1;
-                    else
-                        result += a[i] / b[1];
-                }
-            }
+            result++; // 총감독관은 무조건 1명
+            int remain = a[i] - b[0];
+            if (remain > 0)
+                result += (remain + b[1] - 1) / b[1]; // 부감독관 수 (올림)
         }
 
         sw.WriteLine(result);
