@@ -16,6 +16,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0066-plus-one](https://github.com/wowns226/PS/tree/main/0066-plus-one/) | Easy |
+| [1431-kids-with-the-greatest-number-of-candies](https://github.com/wowns226/PS/tree/main/LeetCode/Easy/1431-kids-with-the-greatest-number-of-candies/) | Easy |
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
