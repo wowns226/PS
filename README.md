@@ -16,10 +16,15 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0066-plus-one](https://github.com/wowns226/PS/tree/main/0066-plus-one/) | Easy |
+| [0605-can-place-flowers](https://github.com/wowns226/PS/tree/main/LeetCode/Easy/0605-can-place-flowers/) | Easy |
 | [1431-kids-with-the-greatest-number-of-candies](https://github.com/wowns226/PS/tree/main/LeetCode/Easy/1431-kids-with-the-greatest-number-of-candies/) | Easy |
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0066-plus-one](https://github.com/wowns226/PS/tree/main/0066-plus-one/) | Easy |
 | [1071-greatest-common-divisor-of-strings](https://github.com/wowns226/PS/tree/main/Python3/Easy/1071-greatest-common-divisor-of-strings/) | Easy |
+## Greedy
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0605-can-place-flowers](https://github.com/wowns226/PS/tree/main/LeetCode/Easy/0605-can-place-flowers/) | Easy |
 <!---LeetCode Topics End-->
